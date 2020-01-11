@@ -1,0 +1,10 @@
+{
+  "name": "vue-cli-plugin-qiankun",
+  "version": "0.1.0",
+  "description": "qiankun plugin for vue-cli",
+  "main": "index.js",
+  "repository": "https://github.com/F-loat/vue-cli-plugin-qiankun",
+  "author": "F-loat <chaimaoyuan@foxmail.com>",
+  "license": "MIT",
+  "private": false
+}
