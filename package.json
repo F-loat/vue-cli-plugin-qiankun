@@ -4,6 +4,12 @@
   "description": "qiankun plugin for vue-cli",
   "main": "index.js",
   "repository": "https://github.com/F-loat/vue-cli-plugin-qiankun",
+  "keywords": [
+    "vue-cli",
+    "plugin",
+    "qiankun",
+    "micro-frontend"
+  ],
   "author": "F-loat <chaimaoyuan@foxmail.com>",
   "license": "MIT",
   "private": false
