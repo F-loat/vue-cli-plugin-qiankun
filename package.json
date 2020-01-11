@@ -3,6 +3,11 @@
   "version": "0.1.0",
   "description": "qiankun plugin for vue-cli",
   "main": "index.js",
+  "files": [
+    "generator",
+    "index.js",
+    "prompts.js"
+  ],
   "repository": "https://github.com/F-loat/vue-cli-plugin-qiankun",
   "keywords": [
     "vue-cli",
