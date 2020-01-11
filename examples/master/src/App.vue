@@ -54,20 +54,20 @@ export default {
         {
           beforeLoad: [
             app => {
-              // eslint-disable-next-line
-                console.log('before load', app)
+              // eslint-disable-next-line no-console
+              console.log('before load', app)
             }
           ],
           beforeMount: [
             app => {
-              // eslint-disable-next-line
-                console.log('before mount', app)
+              // eslint-disable-next-line no-console
+              console.log('before mount', app)
             }
           ],
           afterUnmount: [
             app => {
-              // eslint-disable-next-line
-                console.log('after unload', app)
+              // eslint-disable-next-line no-console
+              console.log('after unload', app)
             }
           ]
         }
@@ -76,8 +76,8 @@ export default {
       setDefaultMountApp('/foo-app')
 
       runAfterFirstMounted(() => {
-        // eslint-disable-next-line
-          console.info('first app mounted')
+        // eslint-disable-next-line no-console
+        console.info('first app mounted')
       })
 
       start({ prefetch: true })

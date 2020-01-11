@@ -10,12 +10,12 @@ module.exports = `
   }
 
   export async function bootstrap () {
-    // eslint-disable-next-line
+    // eslint-disable-next-line no-console
     console.log('vue app bootstraped')
   }
 
   export async function mount (props) {
-    // eslint-disable-next-line
+    // eslint-disable-next-line no-console
     console.log('props from main framework', props)
     render()
   }

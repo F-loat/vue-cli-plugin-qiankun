@@ -19,13 +19,13 @@ if (!window.__POWERED_BY_QIANKUN__) {
 }
 
 export async function bootstrap () {
-  // eslint-disable-next-line
-    console.log('vue app bootstraped')
+  // eslint-disable-next-line no-console
+  console.log('vue app bootstraped')
 }
 
 export async function mount (props) {
-  // eslint-disable-next-line
-    console.log('props from main framework', props)
+  // eslint-disable-next-line no-console
+  console.log('props from main framework', props)
   render()
 }
 

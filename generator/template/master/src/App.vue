@@ -53,19 +53,19 @@
           {
             beforeLoad: [
               app => {
-                // eslint-disable-next-line
+                // eslint-disable-next-line no-console
                 console.log('before load', app)
               }
             ],
             beforeMount: [
               app => {
-                // eslint-disable-next-line
+                // eslint-disable-next-line no-console
                 console.log('before mount', app)
               }
             ],
             afterUnmount: [
               app => {
-                // eslint-disable-next-line
+                // eslint-disable-next-line no-console
                 console.log('after unload', app)
               }
             ]
@@ -75,7 +75,7 @@
         setDefaultMountApp('/slave')
 
         runAfterFirstMounted(() => {
-          // eslint-disable-next-line
+          // eslint-disable-next-line no-console
           console.info('first app mounted')
         })
 
