@@ -63,6 +63,15 @@ $ yarn serve
 
 - 各项目成功运行后，访问 [主应用](http://http://localhost:8080) 查看效果 (After each project runs successfully, visit the [master project](http://http://localhost:8080) to see the effect)
 
+### 示例 (Examples)
+
+``` sh
+$ cd examples
+$ yarn
+$ yarn install:all
+$ yarn serve:all
+```
+
 ### 致谢 (Acknowledgements)
 
 - [vue-cli](https://github.com/vuejs/vue-cli) Standard Tooling for Vue.js Development.
