@@ -1,12 +1,12 @@
-# vue-cli-plugin-qiankun
+## vue-cli-plugin-qiankun
 
 > qiankun plugin for vue-cli
 
 [![npm version](https://img.shields.io/npm/v/vue-cli-plugin-qiankun.svg?style=flat-square)](https://www.npmjs.com/package/vue-cli-plugin-qiankun) [![npm downloads](https://img.shields.io/npm/dt/vue-cli-plugin-qiankun.svg?style=flat-square)](https://www.npmjs.com/package/vue-cli-plugin-qiankun)
 
-## 使用步骤 (Use Setup)
+### 使用步骤 (Use Setup)
 
-### 创建主应用 (Create Master Project)
+1. 创建主应用 (Create Master Project)
 
 ``` sh
 $ vue create master
@@ -14,7 +14,7 @@ $ cd master
 $ vue add vue-cli-plugin-qiankun --type master
 ```
 
-### 创建子应用 (Create Slave Project)
+2. 创建子应用 (Create Slave Project)
 
 ``` sh
 $ vue create foo-app
@@ -22,9 +22,9 @@ $ cd foo-app
 $ vue add vue-cli-plugin-qiankun --type slave --port 8081
 ```
 
-* 重复此步骤，创建 `bar-app` 项目 (Repeat this step to create a `bar-app` project)
+- 重复此步骤，创建 `bar-app` 项目 (Repeat this step to create a `bar-app` project)
 
-### 配置主应用 (Config Master Project)
+3. 配置主应用 (Config Master Project)
 
 > master/src/App.vue
 
@@ -55,18 +55,18 @@ export default {
 </script>
 ```
 
-### 运行各项目 (Run each project)
+4. 运行各项目 (Run each project)
 
 ``` sh
 $ yarn serve
 ```
 
-* 各项目成功运行后，访问 [主应用](http://http://localhost/:8080) 查看效果 (After each project runs successfully, visit the [master project](http://http://localhost/:8080) to see the effect)
+- 各项目成功运行后，访问 [主应用](http://http://localhost:8080) 查看效果 (After each project runs successfully, visit the [master project](http://http://localhost:8080) to see the effect)
 
-## 致谢 (Acknowledgements)
+### 致谢 (Acknowledgements)
 
-* [vue-cli](https://github.com/vuejs/vue-cli) Standard Tooling for Vue.js Development.
+- [vue-cli](https://github.com/vuejs/vue-cli) Standard Tooling for Vue.js Development.
 
-* [qiankun](https://github.com/umijs/qiankun) Blazing fast, simple and completed solution for micro frontends.
+- [qiankun](https://github.com/umijs/qiankun) Blazing fast, simple and completed solution for micro frontends.
 
-* [single-spa](https://github.com/CanopyTax/single-spa) What an awesome meta-framework for micro-frontends!
+- [single-spa](https://github.com/CanopyTax/single-spa) What an awesome meta-framework for micro-frontends!
