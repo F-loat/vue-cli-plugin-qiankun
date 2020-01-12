@@ -4,9 +4,9 @@
 
 [![npm version](https://img.shields.io/npm/v/vue-cli-plugin-qiankun.svg?style=flat-square)](https://www.npmjs.com/package/vue-cli-plugin-qiankun) [![npm downloads](https://img.shields.io/npm/dt/vue-cli-plugin-qiankun.svg?style=flat-square)](https://www.npmjs.com/package/vue-cli-plugin-qiankun)
 
-### 使用步骤 (Use Setup)
+### 使用步骤 (Use setup)
 
-1. 创建主应用 (Create Master Project)
+1. 创建主应用 (Create master project)
 
 ``` sh
 $ vue create master
@@ -14,7 +14,7 @@ $ cd master
 $ vue add vue-cli-plugin-qiankun --type master
 ```
 
-2. 创建子应用 (Create Slave Project)
+2. 创建子应用 (Create slave project)
 
 ``` sh
 $ vue create foo-app
@@ -22,9 +22,7 @@ $ cd foo-app
 $ vue add vue-cli-plugin-qiankun --type slave --port 8081
 ```
 
-- 重复此步骤，创建 `bar-app` 项目 (Repeat this step to create a `bar-app` project)
-
-3. 配置主应用 (Config Master Project)
+3. 配置主应用 (Config master project)
 
 > master/src/App.vue
 
@@ -34,11 +32,9 @@ export default {
   name: 'master',
   data () {
     return {
-      loading: false,
-      content: null,
+      // ...
       apps: [
-        { name: 'foo-app', entry: '//localhost:8081', render: this.render, activeRule: genActiveRule('/foo-app') },
-        { name: 'bar-app', entry: '//localhost:8082', render: this.render, activeRule: genActiveRule('/bar-app') }
+        { name: 'foo-app', entry: '//localhost:8081', render: this.render, activeRule: genActiveRule('/foo-app') }
       ]
     }
   },
@@ -58,6 +54,12 @@ export default {
 4. 运行各项目 (Run each project)
 
 ``` sh
+$ cd master
+$ yarn serve
+```
+
+``` sh
+$ cd foo-app
 $ yarn serve
 ```
 
