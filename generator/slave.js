@@ -1,4 +1,4 @@
-const mainTemplate = require('./template/slave-main')
+const slaveMain = require('./template/slave-main')
 
 module.exports = (api) => {
   const { port } = api.options
@@ -27,11 +27,15 @@ module.exports = (api) => {
     }
 
     if (!files[api.entryFile].match(/\nnew Vue\(/)) {
-      console.info('\n暂无法自动转换该项目的 main.js 文件，请手动修改\n')
+      files['src/slave-main.js'] = slaveMain.standard.replace(
+        /(new Vue\([\s\S]*)/,
+        slaveMain.replacement
+      )
+      console.info('\n暂无法自动转换该项目的 main.js 文件，请参考 src/slave-main.js 手动修改\n')
     } else {
       files[api.entryFile] = files[api.entryFile].replace(
         /(new Vue\([\s\S]*)/,
-        mainTemplate
+        slaveMain.replacement
       )
     }
   })

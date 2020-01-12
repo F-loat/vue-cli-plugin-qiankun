@@ -1,5 +1,15 @@
-module.exports = `
-  let instance = null
+exports.standard = `import Vue from 'vue'
+  import App from './App.vue'
+  import './public-path'
+
+  Vue.config.productionTip = false
+
+  new Vue({
+    render: h => h(App)
+  }).$mount('#app')
+`
+
+exports.replacement = `let instance = null
 
   function render () {
     instance = $1
