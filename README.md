@@ -74,6 +74,14 @@ $ yarn install:all
 $ yarn serve:all
 ```
 
+### 功能 (Features)
+
+- 修改项目文件引入 qiankun 框架
+
+- 注入 qiankun 框架要求的构建配置
+
+- 开发模式自动配置 `publicPath` 处理资源路径
+
 ### 致谢 (Acknowledgements)
 
 - [vue-cli](https://github.com/vuejs/vue-cli) Standard Tooling for Vue.js Development.
