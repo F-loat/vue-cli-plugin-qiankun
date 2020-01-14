@@ -3,7 +3,9 @@
     <header>
       <nav>
         <ol>
-          <li v-for="app of apps" :key="app.name"><a @click="goto(app.name, `/${app.name}`)">{{app.name}}</a></li>
+          <li v-for="app of apps" :key="app.name">
+            <a @click="goto(app.name, `/${app.name}`)">{{app.name}}</a>
+          </li>
         </ol>
       </nav>
     </header>
@@ -19,6 +21,11 @@ const genActiveRule = routerPrefix => {
   return location => location.pathname.startsWith(routerPrefix)
 }
 
+const entries = {
+  'foo-app': process.env.NODE_ENV === 'production' ? '/foo-app' : '//localhost:8081',
+  'bar-app': process.env.NODE_ENV === 'production' ? '/bar-app' : '//localhost:8082'
+}
+
 export default {
   name: 'master',
   data () {
@@ -26,8 +33,8 @@ export default {
       loading: false,
       content: null,
       apps: [
-        { name: 'foo-app', entry: '//localhost:8081', render: this.render, activeRule: genActiveRule('/foo-app') },
-        { name: 'bar-app', entry: '//localhost:8082', render: this.render, activeRule: genActiveRule('/bar-app') }
+        { name: 'foo-app', entry: entries['foo-app'], render: this.render, activeRule: genActiveRule('/foo-app') },
+        { name: 'bar-app', entry: entries['bar-app'], render: this.render, activeRule: genActiveRule('/bar-app') }
       ]
     }
   },
@@ -87,11 +94,11 @@ export default {
 </script>
 
 <style scoped>
-  a {
-    color: #42b983;
-    cursor: pointer;
-  }
-  .appContainer {
-    margin-top: 50px;
-  }
+a {
+  color: #42b983;
+  cursor: pointer;
+}
+.appContainer {
+  margin-top: 50px;
+}
 </style>
