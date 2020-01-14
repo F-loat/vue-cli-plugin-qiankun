@@ -22,9 +22,8 @@ const routes = [
 
 const router = new VueRouter({
   mode: 'history',
-  base: (process.env.NODE_ENV === 'production' || window.__POWERED_BY_QIANKUN__)
-    ? '/foo-app'
-    : '/',
+  base: process.env.VUE_APP_BASE_PATH ||
+    (window.__POWERED_BY_QIANKUN__ ? '/foo-app/' : '/'),
   routes
 })
 

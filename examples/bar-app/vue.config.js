@@ -1,6 +1,4 @@
 module.exports = {
   productionSourceMap: false,
-  publicPath: process.env.NODE_ENV === 'production'
-    ? '/bar-app/'
-    : '/'
+  publicPath: process.env.VUE_APP_BASE_PATH
 }

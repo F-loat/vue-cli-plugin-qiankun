@@ -4,7 +4,7 @@
       <nav>
         <ol>
           <li v-for="app of apps" :key="app.name">
-            <a @click="goto(app.name, `/${app.name}`)">{{app.name}}</a>
+            <a @click="goto(app.name, app.href)">{{app.name}}</a>
           </li>
         </ol>
       </nav>
@@ -21,10 +21,15 @@ const genActiveRule = routerPrefix => {
   return location => location.pathname.startsWith(routerPrefix)
 }
 
-const entries = {
-  'foo-app': process.env.NODE_ENV === 'production' ? '/foo-app' : '//localhost:8081',
-  'bar-app': process.env.NODE_ENV === 'production' ? '/bar-app' : '//localhost:8082'
-}
+const appInfos = process.env.NODE_ENV === 'production'
+  ? [
+    { name: 'foo-app', entry: '/vue-cli-plugin-qiankun/foo-app', href: '/vue-cli-plugin-qiankun/foo-app' },
+    { name: 'bar-app', entry: '/vue-cli-plugin-qiankun/bar-app', href: '/vue-cli-plugin-qiankun/bar-app' }
+  ]
+  : [
+    { name: 'foo-app', entry: '//localhost:8081', href: '/foo-app' },
+    { name: 'bar-app', entry: '//localhost:8082', href: '/bar-app' }
+  ]
 
 export default {
   name: 'master',
@@ -32,10 +37,13 @@ export default {
     return {
       loading: false,
       content: null,
-      apps: [
-        { name: 'foo-app', entry: entries['foo-app'], render: this.render, activeRule: genActiveRule('/foo-app') },
-        { name: 'bar-app', entry: entries['bar-app'], render: this.render, activeRule: genActiveRule('/bar-app') }
-      ]
+      apps: appInfos.map(app => {
+        return {
+          ...app,
+          render: this.render,
+          activeRule: genActiveRule(app.href)
+        }
+      })
     }
   },
   created () {
@@ -80,7 +88,8 @@ export default {
         }
       )
 
-      setDefaultMountApp('/foo-app')
+      const defaultApp = apps[0] || {}
+      setDefaultMountApp(defaultApp.href)
 
       runAfterFirstMounted(() => {
         // eslint-disable-next-line no-console
