@@ -2,7 +2,7 @@
   "name": "examples",
   "license": "MIT",
   "scripts": {
-    "install:all": "concurrently \"yarn\" \"yarn install:master\" \"yarn install:foo\" \"yarn install:bar\"",
+    "install:all": "yarn install:master && yarn install:foo && yarn install:bar",
     "install:master": "cd master && yarn",
     "install:foo": "cd foo-app && yarn",
     "install:bar": "cd bar-app && yarn",
