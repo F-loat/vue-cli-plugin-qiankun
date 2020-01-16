@@ -22,7 +22,7 @@
     "cp-cli": "^2.0.0",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
-    "vue-cli-plugin-qiankun": "^0.1.2",
+    "vue-cli-plugin-qiankun": "../../",
     "vue-template-compiler": "^2.6.10"
   }
 }
