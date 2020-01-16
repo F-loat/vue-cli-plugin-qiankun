@@ -1,4 +1,4 @@
-const slaveMain = require('./template/slave-main')
+const slaveMain = require('./template/slave/main')
 
 module.exports = (api) => {
   const { port } = api.options
@@ -13,8 +13,6 @@ module.exports = (api) => {
   }
 
   api.injectImports(api.entryFile, `import './public-path'`)
-
-  api.render('./template/slave')
 
   api.postProcessFiles((files) => {
     const routerConfigPath = 'src/router/index.js'
