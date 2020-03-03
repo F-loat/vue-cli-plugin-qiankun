@@ -12,8 +12,6 @@ module.exports = (api) => {
     })
   }
 
-  api.injectImports(api.entryFile, `import './public-path'`)
-
   api.postProcessFiles((files) => {
     const routerConfigPath = 'src/router/index.js'
 
