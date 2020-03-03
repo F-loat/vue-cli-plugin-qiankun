@@ -10,7 +10,7 @@ module.exports = (api, projectOptions) => {
     // eslint-disable-next-line camelcase
     const { npm_lifecycle_event, PORT } = process.env
 
-    const currentScript = scripts[npm_lifecycle_event]
+    const currentScript = scripts[npm_lifecycle_event] || ''
 
     const { port } = require('minimist')(currentScript.split(' '))
 
