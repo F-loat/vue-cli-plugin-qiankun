@@ -23,8 +23,8 @@ const genActiveRule = routerPrefix => {
 
 const appInfos = process.env.NODE_ENV === 'production'
   ? [
-    { name: 'foo-app', entry: '/vue-cli-plugin-qiankun/foo-app', href: '/vue-cli-plugin-qiankun/foo-app' },
-    { name: 'bar-app', entry: '/vue-cli-plugin-qiankun/bar-app', href: '/vue-cli-plugin-qiankun/bar-app' }
+    { name: 'foo-app', entry: '/vue-cli-plugin-qiankun/foo-app/source.html', href: '/vue-cli-plugin-qiankun/foo-app' },
+    { name: 'bar-app', entry: '/vue-cli-plugin-qiankun/bar-app/source.html', href: '/vue-cli-plugin-qiankun/bar-app' }
   ]
   : [
     { name: 'foo-app', entry: '//localhost:8081', href: '/foo-app' },
