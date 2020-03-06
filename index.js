@@ -1,17 +1,19 @@
 const path = require('path')
 
 module.exports = (api) => {
-  const { name } = api.service.pkg
+  const { name, qiankunConfig = {} } = api.service.pkg
 
   api.chainWebpack((config) => {
-    config.merge({
-      entry: {
-        main: [
-          path.resolve(__dirname, './public-path.js'),
-          path.resolve(api.service.context, 'src/main.js')
-        ]
-      }
-    })
+    if (qiankunConfig.type === 'slave') {
+      config.merge({
+        entry: {
+          main: [
+            path.resolve(__dirname, './public-path.js'),
+            path.resolve(api.service.context, 'src/main.js')
+          ]
+        }
+      })
+    }
 
     config.devServer
       .headers({

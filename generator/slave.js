@@ -4,13 +4,14 @@ module.exports = (api) => {
   const { port } = api.options
   const { projectName } = api.rootOptions
 
-  if (port !== 8080) {
-    api.extendPackage({
-      scripts: {
-        serve: `vue-cli-service serve --port ${port}`
-      }
-    })
-  }
+  api.extendPackage({
+    scripts: {
+      serve: `vue-cli-service serve --port ${port}`
+    },
+    qiankunConfig: {
+      type: 'slave'
+    }
+  })
 
   api.postProcessFiles((files) => {
     const routerConfigPath = 'src/router/index.js'
