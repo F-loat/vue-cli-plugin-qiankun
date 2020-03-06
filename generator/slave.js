@@ -7,9 +7,6 @@ module.exports = (api) => {
   api.extendPackage({
     scripts: {
       serve: `vue-cli-service serve --port ${port}`
-    },
-    qiankunConfig: {
-      type: 'slave'
     }
   })
 

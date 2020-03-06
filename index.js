@@ -1,10 +1,10 @@
 const path = require('path')
 
 module.exports = (api) => {
-  const { name, qiankunConfig = {} } = api.service.pkg
+  const { name, dependencies = {} } = api.service.pkg
 
   api.chainWebpack((config) => {
-    if (qiankunConfig.type === 'slave') {
+    if (!dependencies.qiankun) {
       config.merge({
         entry: {
           main: [
