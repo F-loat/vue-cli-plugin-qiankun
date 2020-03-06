@@ -6,6 +6,7 @@
   "files": [
     "generator",
     "index.js",
+    "public-path.js",
     "prompts.js"
   ],
   "repository": "https://github.com/F-loat/vue-cli-plugin-qiankun",
