@@ -24,8 +24,5 @@
     "eslint-plugin-vue": "^5.0.0",
     "vue-cli-plugin-qiankun": "../../",
     "vue-template-compiler": "^2.6.10"
-  },
-  "qiankunConfig": {
-    "type": "slave"
   }
 }
