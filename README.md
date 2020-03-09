@@ -80,7 +80,7 @@ $ yarn serve:all
 
 - 注入 qiankun 框架要求的构建配置
 
-- 开发模式自动配置 `publicPath` 处理资源路径
+- 自动配置 `publicPath` 处理资源路径
 
 ### 致谢 (Acknowledgements)
 
