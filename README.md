@@ -34,7 +34,7 @@ export default {
     return {
       // ...
       apps: [
-        { name: 'foo-app', entry: '//localhost:8081', render: this.render, activeRule: genActiveRule('/foo-app') }
+        { name: 'foo-app', entry: '//localhost:8081', container: '#appContainer', activeRule: '/foo-app' }
       ]
     }
   },
