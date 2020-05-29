@@ -4,46 +4,33 @@
       <nav>
         <ol>
           <li v-for="app of apps" :key="app.name">
-            <a @click="goto(app.name, app.href)">{{app.name}}</a>
+            <a @click="goto(app.name, app.activeRule)">{{app.name}}</a>
           </li>
         </ol>
       </nav>
     </header>
-    <div v-if="loading">loading</div>
-    <div class="appContainer" v-html="content" />
+    <div id="appContainer" />
   </div>
 </template>
 
 <script>
 import { registerMicroApps, runAfterFirstMounted, setDefaultMountApp, start } from 'qiankun'
 
-const genActiveRule = routerPrefix => {
-  return location => location.pathname.startsWith(routerPrefix)
-}
-
-const appInfos = process.env.NODE_ENV === 'production'
+const apps = process.env.NODE_ENV === 'production'
   ? [
-    { name: 'foo-app', entry: '/vue-cli-plugin-qiankun/foo-app/source.html', href: '/vue-cli-plugin-qiankun/foo-app' },
-    { name: 'bar-app', entry: '/vue-cli-plugin-qiankun/bar-app/source.html', href: '/vue-cli-plugin-qiankun/bar-app' }
+    { name: 'foo-app', entry: '/vue-cli-plugin-qiankun/foo-app/source.html', container: '#appContainer', activeRule: '/vue-cli-plugin-qiankun/foo-app' },
+    { name: 'bar-app', entry: '/vue-cli-plugin-qiankun/bar-app/source.html', container: '#appContainer', activeRule: '/vue-cli-plugin-qiankun/bar-app' }
   ]
   : [
-    { name: 'foo-app', entry: '//localhost:8081', href: '/foo-app' },
-    { name: 'bar-app', entry: '//localhost:8082', href: '/bar-app' }
+    { name: 'foo-app', entry: '//localhost:8081', container: '#appContainer', activeRule: '/foo-app' },
+    { name: 'bar-app', entry: '//localhost:8082', container: '#appContainer', activeRule: '/bar-app' }
   ]
 
 export default {
   name: 'master',
   data () {
     return {
-      loading: false,
-      content: null,
-      apps: appInfos.map(app => {
-        return {
-          ...app,
-          render: this.render,
-          activeRule: genActiveRule(app.href)
-        }
-      })
+      apps
     }
   },
   created () {
@@ -57,13 +44,7 @@ export default {
     goto (title, href) {
       window.history.pushState({}, title, href)
     },
-    render ({ appContent, loading }) {
-      this.content = appContent
-      this.loading = loading
-    },
     initQiankun () {
-      const { apps } = this
-
       registerMicroApps(
         apps,
         {
@@ -89,7 +70,7 @@ export default {
       )
 
       const defaultApp = apps[0] || {}
-      setDefaultMountApp(defaultApp.href)
+      setDefaultMountApp(defaultApp.activeRule)
 
       runAfterFirstMounted(() => {
         // eslint-disable-next-line no-console

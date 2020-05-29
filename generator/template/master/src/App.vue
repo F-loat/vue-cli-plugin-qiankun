@@ -3,30 +3,25 @@
     <header>
       <nav>
         <ol>
-          <li v-for="app of apps" :key="app.name"><a @click="goto(app.name, `/${app.name}`)">{{app.name}}</a></li>
+          <li v-for="app of apps" :key="app.name">
+            <a @click="goto(app.name, `/${app.activeRule}`)">{{app.name}}</a>
+          </li>
         </ol>
       </nav>
     </header>
-    <div v-if="loading">loading</div>
-    <div class="appContainer" v-html="content" />
+    <div id="appContainer" />
   </div>
 </template>
 
 <script>
   import { registerMicroApps, runAfterFirstMounted, setDefaultMountApp, start } from 'qiankun'
 
-  const genActiveRule = routerPrefix => {
-    return location => location.pathname.startsWith(routerPrefix)
-  }
-
 	export default {
     name: 'master',
 		data () {
       return {
-        loading: false,
-        content: null,
         apps: [
-          { name: 'slave', entry: '//localhost:8081', render: this.render, activeRule: genActiveRule('/slave') }
+          { name: 'slave', entry: '//localhost:8081', container: '#appContaine', activeRule: '/slave' }
         ]
       }
     },
@@ -42,15 +37,9 @@
 			goto (title, href) {
 				window.history.pushState({}, title, href)
       },
-      render ({ appContent, loading }) {
-        this.content = appContent
-        this.loading = loading
-      },
       initQiankun () {
-        const { apps } = this
-
         registerMicroApps(
-          apps,
+          this.apps,
           {
             beforeLoad: [
               app => {
