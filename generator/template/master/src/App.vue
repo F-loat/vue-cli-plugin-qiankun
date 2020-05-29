@@ -31,9 +31,10 @@
       }
     },
     created () {
-      if (!window.__POWERED_BY_QIANKUN__) {
+      if (!window.__INJECTED_PUBLIC_PATH_BY_QIANKUN__) {
         this.initQiankun()
       } else {
+        // fix hot-reload
         location.reload()
       }
     },

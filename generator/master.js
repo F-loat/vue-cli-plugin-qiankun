@@ -1,7 +1,7 @@
 module.exports = (api) => {
   api.extendPackage({
     dependencies: {
-      'qiankun': '^1.3.13'
+      "qiankun": "^2.0.0"
     }
   })
 

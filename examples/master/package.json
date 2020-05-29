@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "core-js": "^3.4.4",
-    "qiankun": "^1.3.13",
+    "qiankun": "^2.0.0",
     "vue": "^2.6.10"
   },
   "devDependencies": {
