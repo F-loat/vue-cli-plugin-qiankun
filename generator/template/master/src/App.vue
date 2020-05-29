@@ -21,7 +21,7 @@
 		data () {
       return {
         apps: [
-          { name: 'slave', entry: '//localhost:8081', container: '#appContaine', activeRule: '/slave' }
+          { name: 'slave', entry: '//localhost:8081', container: '#appContainer', activeRule: '/slave' }
         ]
       }
     },
