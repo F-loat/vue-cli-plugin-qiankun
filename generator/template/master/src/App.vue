@@ -4,7 +4,7 @@
       <nav>
         <ol>
           <li v-for="app of apps" :key="app.name">
-            <a @click="goto(app.name, `/${app.activeRule}`)">{{app.name}}</a>
+            <a @click="goto(app.name, `${app.activeRule}`)">{{app.name}}</a>
           </li>
         </ol>
       </nav>
